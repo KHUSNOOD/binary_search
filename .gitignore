@@ -1,32 +1,26 @@
-# Prerequisites
-*.d
+#include<iostream>
+using namespace std;
+int  binsearch(int a[],int n , int key){
+    int l=0; int h=n;
+    
+    while(l<=h){
+        int mid=(l+h)/2;
+        if(key==a[mid]){
+            return mid;
+        }
+        else if(key<a[mid]){
+            h=mid-1;
+        }
+        else{
+            l=mid+1;
+        }
+    }
+}
+int main(){
+    int a[]={4,8,10,15,18,21,27,29,32,33,37,39,41,43};
+    int n=sizeof(a)/sizeof(a[0]);int key=37;
+    
+    cout<<"key "<<key<<" is found at index "<<binsearch(a,n,key);
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+    return 0;
+}
